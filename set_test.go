@@ -1,11 +1,11 @@
 package set
 
 import (
+	"cmp"
 	"testing"
 
-	"github.com/google/go-cmp/cmp"
+	testcmp "github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
-	"github.com/kagadar/go-pipeline"
 )
 
 func TestHas(t *testing.T) {
@@ -29,10 +29,10 @@ func TestPut(t *testing.T) {
 }
 
 func TestElements(t *testing.T) {
-	if diff := cmp.Diff(
+	if diff := testcmp.Diff(
 		New(1, 2, 3).Elements(),
 		[]int{1, 2, 3},
-		cmpopts.SortSlices(pipeline.Less[int]),
+		cmpopts.SortSlices(cmp.Less[int]),
 	); diff != "" {
 		t.Errorf("Elements() unexpected diff (-got +want):\n%s", diff)
 	}

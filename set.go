@@ -24,5 +24,5 @@ func (s Set[K]) Put(k ...K) {
 }
 
 func (s Set[K]) Elements() []K {
-	return pipeline.MapToSlice(s, func(k K, _ Empty) K { return k })
+	return pipeline.Keys(s)
 }
