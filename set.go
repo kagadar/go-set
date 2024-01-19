@@ -1,6 +1,6 @@
 package set
 
-import "github.com/kagadar/go-pipeline"
+import "github.com/kagadar/go-pipeline/maps"
 
 type Empty struct{}
 
@@ -24,5 +24,5 @@ func (s Set[K]) Put(k ...K) {
 }
 
 func (s Set[K]) Elements() []K {
-	return pipeline.Keys(s)
+	return maps.Keys(s)
 }
